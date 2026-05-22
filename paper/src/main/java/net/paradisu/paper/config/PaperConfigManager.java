@@ -37,5 +37,9 @@ public final class PaperConfigManager extends ConfigManager {
                 "messages",
                 new ConfigEntry<>(
                         MessagesConfig.class, dataDirectory.resolve("messages.yml"), "Messages Configuration"));
+        this.configs.put(
+                "regionaudio",
+                new ConfigEntry<>(
+                        MessagesConfig.class, dataDirectory.resolve("regionaudio.yml"), "Audio Configuration"));
     }
 }
