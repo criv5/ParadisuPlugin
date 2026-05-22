@@ -79,7 +79,7 @@ public class PlayerJoinSync implements Runnable {
         } catch (NoResultException e) {
             return;
         } catch (Exception e) {
-            Bukkit.getScheduler().runTask(paradisu, () -> player.kick());
+            // Bukkit.getScheduler().runTask(paradisu, () -> player.kick());
             return;
         }
 
