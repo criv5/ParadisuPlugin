@@ -18,13 +18,16 @@
 package net.paradisu.paper.commands.command;
 
 import io.papermc.paper.command.brigadier.CommandSourceStack;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.paradisu.core.locale.Messages;
 import net.paradisu.paper.ParadisuPaper;
 import net.paradisu.paper.commands.AbstractPaperCommand;
 import org.incendo.cloud.context.CommandContext;
 import org.incendo.cloud.description.CommandDescription;
 import org.incendo.cloud.description.Description;
+import org.incendo.cloud.parser.standard.IntegerParser;
 import org.incendo.cloud.parser.standard.StringParser;
 
 public final class ParadisuCommand extends AbstractPaperCommand {
@@ -58,6 +61,16 @@ public final class ParadisuCommand extends AbstractPaperCommand {
                 .commandDescription(CommandDescription.commandDescription(
                         paradisu.messagesConfig().commands().paradisu().reload().helpMsg()))
                 .handler(this::reloadCommand));
+
+        this.commandManager.command(builder.literal("regionaudio")
+                .literal("add")
+                .permission("paradisu.regionaudio.add")
+                .commandDescription(CommandDescription.commandDescription(
+                        paradisu.messagesConfig().commands().paradisu().regionAudio().add().helpMsg()))
+                .required("regionName", StringParser.stringParser())
+                .required("soundName", StringParser.stringParser())
+                .required("totalTracks", IntegerParser.integerParser(1))
+                .handler(this::regionAudioAddCommand));
     }
 
     /**
@@ -93,5 +106,26 @@ public final class ParadisuCommand extends AbstractPaperCommand {
                                 .reload()
                                 .output()
                                 .get(0))));
+    }
+
+    private void regionAudioAddCommand(CommandContext<CommandSourceStack> context) {
+        String region = context.get("regionName");
+        String sound = context.get("soundName");
+        int total = context.get("totalTracks");
+
+        context.sender()
+                .getSender()
+                .sendMessage(Messages.prefixed(MiniMessage.miniMessage()
+                        .deserialize(paradisu.messagesConfig()
+                                .commands()
+                                .paradisu()
+                                .regionAudio()
+                                .add()
+                                .output()
+                                .get(0),
+                                Placeholder.component("region", Component.text(region)),
+                                Placeholder.component("sound", Component.text(sound)),
+                                Placeholder.component("total", Component.text(total)))));
+
     }
 }

@@ -87,6 +87,7 @@ public final class MessagesConfig {
         public static final class Paradisu {
             private About about = new About();
             private Reload reload = new Reload();
+            private RegionAudio regionAudio = new RegionAudio();
 
             @Setting("help-msg")
             private String helpMsg = "<lang:paradisu.command.help.paradisu>";
@@ -110,6 +111,22 @@ public final class MessagesConfig {
 
                 @Setting("output")
                 private List<String> output = List.of("<lang:paradisu.command.output.paradisu.reload>");
+            }
+
+            @Getter
+            @ConfigSerializable
+            public static final class RegionAudio {
+                private Add add = new Add();
+
+                @Getter
+                @ConfigSerializable
+                public static final class Add {
+                    @Setting("help-msg")
+                    private String helpMsg = "<lang:paradisu.command.help.paradisu.regionaudio.add>";
+
+                    @Setting("output")
+                    private List<String> output = List.of("<lang:paradisu.command.output.paradisu.regionaudio.add:'<gold><region>':'<gold><sound>':'<gold><total>'>");
+                }
             }
         }
     }
