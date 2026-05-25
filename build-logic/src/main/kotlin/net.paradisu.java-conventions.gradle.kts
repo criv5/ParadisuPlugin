@@ -29,6 +29,10 @@ repositories {
     }
     maven("https://repo.spongepowered.org/repository/maven-public/")
     maven("https://repo.opencollab.dev/main")
+
+    maven("https://maven.enginehub.org/repo/")
+
+    maven("https://repo.codemc.io/repository/maven-releases/")
 }
 
 group = properties["group"] as String

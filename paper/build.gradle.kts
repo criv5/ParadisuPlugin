@@ -12,6 +12,8 @@ dependencies {
     compileOnly(libs.paper.api)
     compileOnly(libs.connectorplugin.bukkit)
     compileOnly(libs.luckperms.api)
+    compileOnly(libs.worldguard.bukkit)
+    compileOnly(libs.packetevents.spigot)
 }
 
 description = "paper"

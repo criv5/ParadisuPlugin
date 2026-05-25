@@ -14,11 +14,13 @@ liquibase-slf4j = "5.1.0"
 log4j-slf4j-impl = "2.25.3"
 lombok = "9.1.0"
 luckperms-api = "5.5"
+packetevents = "2.12.1"
 paper-api = "1.21.11-R0.1-SNAPSHOT"
 postgresql = "42.7.8"
 shadow = "9.3.0"
 spotless = "8.1.0"
 velocity-api = "3.4.0-SNAPSHOT"
+worldguard = "7.0.15"
 
 [libraries]
 adventure-api = { group = "net.kyori", name = "adventure-api", version.ref = "adventure" }
@@ -39,11 +41,13 @@ liquibase-core = { group = "org.liquibase", name = "liquibase-core", version.ref
 liquibase-slf4j = { group = "com.mattbertolini", name = "liquibase-slf4j", version.ref = "liquibase-slf4j" }
 log4j-slf4j-impl = { group = "org.apache.logging.log4j", name = "log4j-slf4j-impl", version.ref = "log4j-slf4j-impl" }
 luckperms-api = { group = "net.luckperms", name = "api", version.ref = "luckperms-api" }
+packetevents-spigot = { group = "com.github.retrooper", name = "packetevents-spigot", version.ref = "packetevents" }
 paper-api = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper-api" }
 postgresql = { group = "org.postgresql", name = "postgresql", version.ref = "postgresql" }
 shadow = { group = "com.gradleup.shadow", name = "shadow-gradle-plugin", version.ref = "shadow" }
 spotless = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
 velocity-api = { group = "com.velocitypowered", name = "velocity-api", version.ref = "velocity-api" }
+worldguard-bukkit = { group = "com.sk89q.worldguard", name = "worldguard-bukkit", version.ref = "worldguard" }
 
 [bundles]
 adventure-paper = [
