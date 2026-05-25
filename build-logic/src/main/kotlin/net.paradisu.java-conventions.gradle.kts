@@ -12,23 +12,9 @@ val libs = the<LibrariesForLibs>()
 repositories {
     // mavenLocal()
     maven("https://repo.maven.apache.org/maven2/")
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/") {
-        mavenContent { snapshotsOnly() }
-    }
     maven("https://repo.papermc.io/repository/maven-public/")
-    maven("https://repo.dmulloy2.net/repository/public/")
-    maven("https://repo.minebench.de/")
-    maven("https://oss.sonatype.org/content/repositories/snapshots") {
-        mavenContent { snapshotsOnly() }
-    }
-    maven("https://repo.velocitypowered.com/snapshots/") {
-        mavenContent { snapshotsOnly() }
-    }
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/") {
-        mavenContent { snapshotsOnly() }
-    }
-    maven("https://repo.spongepowered.org/repository/maven-public/")
     maven("https://repo.opencollab.dev/main")
+    maven("https://repo.minebench.de/")
 }
 
 group = properties["group"] as String
@@ -36,7 +22,7 @@ version = properties["version"] as String
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
 
@@ -84,7 +70,7 @@ tasks {
 }
 
 fun parseApiVersion(input: String): String {
-    val regex = Regex("""^(\d+\.\d+)""")
+    val regex = Regex("""^(\d+\.\d+(\.\d+)?)""")
     val matchResult = regex.find(input)
     val version = matchResult?.groupValues?.get(1)
 
