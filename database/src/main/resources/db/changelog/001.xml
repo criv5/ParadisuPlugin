@@ -103,4 +103,21 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="6" author="paradisu">
+        <createTable tableName="REGIONS">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="sound" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="total" type="INTEGER">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
