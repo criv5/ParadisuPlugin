@@ -19,6 +19,7 @@ package net.paradisu.paper.listeners;
 
 import lombok.AllArgsConstructor;
 import net.paradisu.paper.ParadisuPaper;
+import net.paradisu.paper.regionaudio.Data;
 import net.paradisu.paper.sync.PlayerJoinSync;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -34,7 +35,7 @@ public class PlayerJoinListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-
+        Data.create(player);
         Bukkit.getScheduler().runTaskAsynchronously(paradisu, new PlayerJoinSync(paradisu, player));
     }
 }

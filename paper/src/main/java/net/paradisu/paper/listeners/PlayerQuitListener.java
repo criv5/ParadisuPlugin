@@ -19,6 +19,7 @@ package net.paradisu.paper.listeners;
 
 import lombok.AllArgsConstructor;
 import net.paradisu.paper.ParadisuPaper;
+import net.paradisu.paper.regionaudio.Data;
 import net.paradisu.paper.sync.PlayerQuitSync;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -34,7 +35,7 @@ public class PlayerQuitListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-
+        Data.delete(player);
         Bukkit.getScheduler().runTaskAsynchronously(paradisu, new PlayerQuitSync(paradisu, player));
     }
 }
