@@ -14,11 +14,13 @@ liquibase-slf4j = "5.1.0"
 log4j-slf4j-impl = "2.26.0"
 lombok = "9.5.0"
 luckperms-api = "5.5"
+packetevents = "2.12.1"
 paper-api = "26.1.2.build.65-stable"
 postgresql = "42.7.11"
 shadow = "9.4.1"
 spotless = "8.5.1"
 velocity-api = "3.5.0-20260524.160038-31"
+worldguard = "7.0.16"
 
 [libraries]
 adventure-api = { group = "net.kyori", name = "adventure-api", version.ref = "adventure" }
