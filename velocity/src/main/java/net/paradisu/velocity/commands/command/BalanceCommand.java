@@ -28,6 +28,14 @@ public class BalanceCommand extends AbstractVelocityCommand {
                 .permission("vparadisu.balance")
                 .commandDescription(Description.of(
                         paradisu.messagesConfig().commands().back().helpMsg()))
+                .optional(
+                        "player",
+                        PlayerParser.playerParser(),
+                        Description.of(paradisu.messagesConfig()
+                                .commands()
+                                .tp()
+                                .helpArgs()
+                                .get(0)))
                 .handler(this::balanceCommand);
         this.commandManager.command(builder);
     }
@@ -39,8 +47,8 @@ public class BalanceCommand extends AbstractVelocityCommand {
      */
     @SuppressWarnings("unchecked")
     private void balanceCommand(CommandContext<CommandSource> context) {
-        Player player = (Player) context.sender();
-        long balance = 99;
+        Player player = (Player) context.getOrDefault("player", context.sender());
+        long balance = 0;
         try (EntityManager entityManager = paradisu.databaseSession().factory().createEntityManager()) {
             PlayerModel playerModel = entityManager.find(PlayerModel.class, player.getUniqueId());
 
@@ -59,6 +67,9 @@ public class BalanceCommand extends AbstractVelocityCommand {
                                         .balance()
                                         .output()
                                         .get(0),
+                                Placeholder.component(
+                                        "player", Component.text(player.getUsername())
+                                ),
                                 Placeholder.component(
                                         "balance", Component.text(balance)))));
     }

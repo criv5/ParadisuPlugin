@@ -78,7 +78,7 @@ public class PlayerModel {
 
     @Setter
     @Column(name = "balance")
-    private int balance;
+    private long balance;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
     @Setter

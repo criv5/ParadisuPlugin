@@ -35,6 +35,7 @@ public class VelocityCommandRegistrar {
                         new ListCommand(paradisu),
                         new PacksCommand(paradisu),
                         new LocateCommand(paradisu),
+                        new SetBalanceCommand(paradisu),
                         new TeleportAcceptCommand(paradisu),
                         new TeleportCancelCommand(paradisu),
                         new TeleportDenyCommand(paradisu),
