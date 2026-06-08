@@ -31,6 +31,7 @@ public class VelocityCommandRegistrar {
     public static void registerCommands(ParadisuVelocity paradisu) {
         Stream.of(
                         new BackCommand(paradisu),
+                        new BalanceCommand(paradisu),
                         new ListCommand(paradisu),
                         new PacksCommand(paradisu),
                         new LocateCommand(paradisu),

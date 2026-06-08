@@ -72,6 +72,7 @@ public final class MessagesConfig {
         private Locate locate = new Locate();
         private Ls ls = new Ls();
         private Back back = new Back();
+        private Balance balance = new Balance();
         private Packs packs = new Packs();
         private Tp tp = new Tp();
         private Tpa tpa = new Tpa();
@@ -96,6 +97,16 @@ public final class MessagesConfig {
             private List<String> output = List.of(
                     "<lang:paradisu.command.output.back.0:'<gold><player>'>",
                     "<lang:paradisu.command.output.back.1:'<gold><player>'>");
+        }
+
+        @Getter
+        @ConfigSerializable
+        public static final class Balance {
+            @Setting("help-msg")
+            private String helpMsg = "<lang:paradisu.command.help.balance>";
+
+            @Setting("output")
+            private List<String> output = List.of("<lang:paradisu.command.output.balance:'<gold><balance>'>");
         }
 
         @Getter
