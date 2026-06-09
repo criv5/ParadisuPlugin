@@ -27,7 +27,7 @@ public class BalanceCommand extends AbstractVelocityCommand {
                 .commandBuilder("balance", "bal")
                 .permission("vparadisu.balance")
                 .commandDescription(Description.of(
-                        paradisu.messagesConfig().commands().back().helpMsg()))
+                        paradisu.messagesConfig().commands().balance().helpMsg()))
                 .optional(
                         "player",
                         PlayerParser.playerParser(),
