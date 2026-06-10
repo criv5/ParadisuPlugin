@@ -34,7 +34,7 @@ jobs:
       uses: planetscale/ghcommit-action@25309d8005ac7c3bcd61d3fe19b69e0fe47dbdde
       with:
         commit_message: "Apply spotless code formatting"
-        repo: ${{ github.repository }}
+        repo: ${{ github.event.pull_request.head.repo.full_name }}
         branch: ${{ github.head_ref || github.ref_name }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
